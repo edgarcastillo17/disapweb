@@ -1,0 +1,367 @@
+body{
+    margin: 0;
+    padding: 0;
+    /*overflow-x: hidden;*/
+}
+
+                                        /* PRIMERA SECCIÓN */
+
+.seccion-uno{
+    background: url(../img/ensenada.jpg) no-repeat center center fixed;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    overflow: hidden;
+}
+
+.headerder{
+    width: 600px;
+    position: relative;
+    margin-left: 1060px;
+}
+
+.headerder nav{
+    box-shadow: none;
+}
+
+.nav-opaizq{
+    background-color: rgba(179, 157, 219, 0.5);
+}
+
+.nav-opader{
+    background-color: rgba(40, 53, 147, 0.5);
+}
+
+.headerizq{
+    width: 600px;
+}
+
+.headerizq nav{
+    box-shadow: none;
+}
+
+.desplegable{
+    width: 300px !important
+}
+
+.desplegable li a{
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.dropper:hover{
+    background-color: rgba(0, 0, 0, 0) !important;
+    text-decoration: underline;
+}
+
+.logo-fb{
+    width: 15px;
+    margin-right: 15px;
+    vertical-align: middle;
+}
+
+.logo-tw{
+    width: 30px;
+    margin-right: 15px;
+    vertical-align: middle;
+}
+
+.logo-pt{
+    width: 30px;
+    margin-right: 15px;
+    vertical-align: middle;
+}
+
+.bc-2020{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bolder;
+    font-size: 13px;
+    line-height: 20px;
+    margin-top: 10px;
+}
+
+.bc-2020:hover{
+    background-color: rgba(0, 0, 0, 0) !important;
+}
+
+.es-en{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: -2px;
+    margin: 0;
+}
+
+.es-en:hover{
+    background-color: #b39ddb !important;
+    margin: 0;
+}
+
+.baja-california{
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+    font-size: 100px;
+    margin-bottom: 0;
+}
+
+.turismo-estado{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bolder;
+    font-size: 35px;
+    margin-top: -15px;
+    margin-bottom: 45px;
+}
+
+.flecha{
+    width: 100px;
+    height: 60px;
+    background-color: rgba(179, 157, 219, 0.5);
+    margin: auto;
+}
+
+                                        /* SEGUNDA SECCIÓN */
+
+.seccion-dos{
+    background: url(../img/tiburonballena.jpg) no-repeat center center fixed;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    overflow: hidden;
+}
+
+/*.degra-ayn{
+    background-color: rgba(26, 35, 126, 0.6);
+    margin-left: -700px;
+    width: 200%;
+    height: 98.5%;
+    position: absolute;
+    transform: skewX(105deg);
+}*/
+
+.acerca-de{
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+    font-size: 40px;
+    margin-bottom: 20px;
+    margin-top: 120px;
+}
+
+.turismo-en{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 25px;
+    margin-top: -35px;
+    margin-bottom: 75px;
+}
+
+.descripcion-bc{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 20px;
+    text-align: justify;
+    margin-bottom: 35px;
+}
+
+.leer-mas{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 20px;
+}
+
+.icono-leermas{
+    vertical-align: middle;
+}
+
+.seccion-dos-textos{
+    margin-left: 50px;
+    margin-right: 900px;
+    position: relative;
+}
+
+.ayn-title{
+    width: 350px;
+    height: 75px;
+    background-color: rgba(179, 157, 219, 0.5);
+    position: relative;
+}
+
+.aventura-naturaleza{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 25px;
+    margin-top: 15px;
+}
+
+                                        /* TERCERA SECCIÓN */
+
+.seccion-tres{
+    background: url(../img/gastronomia.jpg) no-repeat center center fixed;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    overflow: hidden;
+}
+
+.gastro-title{
+    width: 350px;
+    height: 75px;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.gastronomia{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 25px;
+    margin-top: 15px;
+}
+
+.descripcion-gastro{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 20px;
+    text-align: justify;
+}
+
+.seccion-tres-textos{
+    margin-left: 800px;
+    margin-right: 50px;
+    margin-bottom: 30px;
+}
+
+                                        /* CUARTA SECCIÓN */
+
+.seccion-cuatro{
+    background: url(../img/arqueologia.jpg) no-repeat center center fixed;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    overflow: hidden;
+}
+
+/*.degra-mus{
+    background-color: rgba(26, 35, 126, 0.6);
+    margin-left: -700px;
+    width: 200%;
+    height: 108%;
+    position: absolute;
+    transform: skewX(105deg);
+}*/
+
+.museo-title{
+    width: 350px;
+    height: 75px;
+    background-color: rgba(179, 157, 219, 0.5);
+    position: relative;
+}
+
+.museos{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 25px;
+    margin-top: 15px;
+}
+
+.tres-museos{
+    margin-top: 200px;
+    margin-left: 175px;
+    position: relative;
+}
+
+.tres-museos:after{
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.un-museo{
+    float: left;
+    margin: 15px 20px 10px 0px;
+}
+
+.tres-museos img{
+    width: 250px;
+    border-radius: 50%;
+    display: block;
+    margin-right: 100px;
+}
+
+.entrar{
+    clear: left;
+    display: block;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 25px;
+    margin-left: 85px;
+    margin-top: 15px;
+}
+
+.icono-entrar{
+    vertical-align: middle;
+}
+
+                                        /* QUINTA SECCIÓN */
+.seccion-cinco{
+    background-color: #1a237e;
+    padding-top: 75px;
+}
+
+.estado-tur{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 50px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+
+.california-baja{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    font-size: 25px;
+    margin-top: -10px;
+}
+
+.contactos{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 25px;
+    margin-left: 225px;
+    margin-bottom: 200px;
+}
+
+.contactos img{
+    width: 50px;
+    vertical-align: middle;
+}
+
+.contactos:after{
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.icono-con{
+    float: left;
+    margin-right: 150px;
+}
+
+.datos{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 20px;
+    text-align: center;
+    margin-top: -20px;
+}
+
+.creditos-titleizq{
+    width: 400px;
+    height: 75px;
+}
+
+.creditos-titleder{
+    width: 700px;
+    height: 75px;
+}
+
+.creditos{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 20px;
+}
+
+.footer::after{
+    content: "";
+    clear: both;
+    display: table;
+}
