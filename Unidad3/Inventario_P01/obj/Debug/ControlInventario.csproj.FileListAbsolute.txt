@@ -124,3 +124,7 @@ C:\Users\edgar\Downloads\DAW\ControlInventario\obj\Debug\ControlInventario.cspro
 C:\Users\edgar\Downloads\DAW\ControlInventario\obj\Debug\ControlInventario.csproj.CopyComplete
 C:\Users\edgar\Downloads\DAW\ControlInventario\obj\Debug\ControlInventario.dll
 C:\Users\edgar\Downloads\DAW\ControlInventario\obj\Debug\ControlInventario.pdb
+C:\Users\edgar\Downloads\DAW\ControlInventario\obj\Debug\ControlInventario.Migrations.InitialCreate.resources
+C:\Users\edgar\Downloads\DAW\ControlInventario\obj\Debug\ControlInventario.csproj.GenerateResource.cache
+C:\Users\edgar\Downloads\DAW\ControlInventario\obj\Debug\ControlInventario.Migrations.FirstMigration.resources
+C:\Users\edgar\Downloads\DAW\ControlInventario\obj\Debug\ControlInventario.Migrations.UpdateSupplierPhone.resources

@@ -27,12 +27,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="@Url.Action("Register","Account")">Registro</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="@Url.Action("Login","Account")">Inicio de Sesión</a>
-                    </li>
+                    @Html.Partial("_LoginPartial")
                 </ul>
             </div>
         </div>

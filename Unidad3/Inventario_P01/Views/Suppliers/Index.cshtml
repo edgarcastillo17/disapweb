@@ -1,0 +1,60 @@
+﻿@model IEnumerable<ControlInventario.Models.Supplier>
+
+@{
+    ViewBag.Title = "Proveedores";
+}
+
+    <div class="espacio">
+        <h2>Lista de Proveedores</h2>
+
+        <p>
+            @Html.ActionLink("Añadir Nuevo", "Create")
+        </p>
+        <table class="table">
+            <tr>
+                <th>
+                    Código
+                </th>
+                <th>
+                    Nombre
+                </th>
+                <th>
+                    Correo Electrónico
+                </th>
+                <th>
+                    Teléfono
+                </th>
+                <th>
+                    Dirección
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SupplierCode)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SupplierName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Phone)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Address)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Editar", "Edit", new { id = item.Id }) |
+                        @Html.ActionLink("Detalles", "Details", new { id = item.Id }) |
+                        @Html.ActionLink("Eliminar", "Delete", new { id = item.Id })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>

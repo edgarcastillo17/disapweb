@@ -6,17 +6,29 @@
     @Html.AntiForgeryToken()
 
     <ul class="nav navbar-nav navbar-right">
+        <li class="nav-item">
+            <a class="nav-link" href="@Url.Action("Index","Suppliers")">Proveedores</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="@Url.Action("Index","Products")">Productos</a>
+        </li>
         <li>
             @Html.ActionLink("Hola " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
         </li>
-        <li><a href="javascript:document.getElementById('logoutForm').submit()">Cerrar sesión</a></li>
+        <li>
+            <a href="javascript:document.getElementById('logoutForm').submit()"> Cerrar sesión</a>
+        </li>
     </ul>
     }
 }
 else
 {
-    <ul class="nav navbar-nav navbar-right">
-        <li>@Html.ActionLink("Registrarse", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-        <li>@Html.ActionLink("Iniciar sesión", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
-    </ul>
+<ul class="nav navbar-nav navbar-right">
+    <li class="nav-item">
+        <a class="nav-link" href="@Url.Action("Register","Account")">Registro</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="@Url.Action("Login","Account")">Inicio de Sesión</a>
+    </li>
+</ul>
 }
