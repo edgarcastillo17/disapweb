@@ -1,0 +1,47 @@
+﻿@model Eventos.Models.City
+
+@{
+    ViewBag.Title = "Ciudades";
+}
+
+<div class="row col-md-12">
+    <div class="col-md-12 col-md-offset-3">
+        <br />
+        <h3 class="text-center">Eliminar</h3>
+    </div>
+</div>
+
+<h3>Ciudad</h3>
+
+<div>
+    <h5>¿Seguro que deseas eliminar?</h5>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Nombre:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            País:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Country)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-outline-danger btn-sm" />
+            <a href="@Url.Action("Index","Cities")" class="btn btn-outline-dark btn-sm"><i class="fas fa-undo-alt"></i> Regresar</a>
+        </div>
+    }
+</div>

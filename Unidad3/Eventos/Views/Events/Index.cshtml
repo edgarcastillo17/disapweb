@@ -1,0 +1,68 @@
+﻿@model IEnumerable<Eventos.Models.Event>
+
+@{
+    ViewBag.Title = "Eventos";
+}
+
+<div class="row col-md-12">
+     <div class="col-md-12 col-md-offset-3">
+         <h1 class="text-center">Eventos</h1>
+     </div>
+</div>
+
+<a href="@Url.Action("Create","Events")" class="btn btn-sm btn-outline-info"><i class="fas fa-plus"></i> Añadir Evento</a>
+
+<div>
+    <table class="table table-sm table-borderless table-striped event-table">
+        <thead class="thead-dark">
+            <tr>
+                <th class="text-center">
+                    Nombre
+                </th>
+                <th class="text-center">
+                    Tipo
+                </th>
+                <th class="text-center">
+                    Fecha
+                </th>
+                <th class="text-center">
+                    Lugar
+                </th>
+                <th class="text-center">
+                    Ciudad
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td class="text-center">
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td class="text-center">
+                        @Html.DisplayFor(modelItem => item.Type)
+                    </td>
+                    <td class="text-center">
+                        <i class="fas fa-calendar"></i> @Convert.ToString(string.Format("{0:dd/MM/yyyy}", item.Date))
+                    </td>
+                    <td class="text-center">
+                        @Html.DisplayFor(modelItem => item.Place)
+                    </td>
+                    <td class="text-center">
+                        <i class="fas fa-map-marker-alt"></i> @Html.DisplayFor(modelItem => item.City.Name)
+                    </td>
+                    <td class="text-center">
+                        <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+                            <a href="@Url.Action("Details", "Events", new { id = item.Id })" class="btn btn-outline-dark"><i class="fas fa-search"></i></a>
+                            <a href="@Url.Action("Edit", "Events", new { id = item.Id })" class="btn btn-outline-dark"><i class="fas fa-pencil-alt"></i></a>
+                            <a href="@Url.Action("Delete", "Events", new { id = item.Id })" class="btn btn-outline-dark"><i class="fas fa-trash-alt"></i></a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

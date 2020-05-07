@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Eventos.Models.City>
+
+@{
+    ViewBag.Title = "Ciudades";
+}
+
+<div class="row col-md-12">
+    <div class="col-md-12 col-md-offset-3">
+        <h1 class="text-center">Ciudades</h1>
+    </div>
+</div>
+
+<a href="@Url.Action("Create","Cities")" class="btn btn-sm btn-outline-info"><i class="fas fa-plus"></i> Añadir Ciudad</a>
+
+<table class="table table-sm table-borderless table-striped event-table">
+    <thead class="thead-dark">
+        <tr>
+            <th class="text-center">
+                Nombre
+            </th>
+            <th class="text-center">
+                País
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.Country)
+                </td>
+                <td class="text-center">
+                    <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+                        <a href="@Url.Action("Details", "Cities", new { id = item.Id })" class="btn btn-outline-dark"><i class="fas fa-search"></i></a>
+                        <a href="@Url.Action("Edit", "Cities", new { id = item.Id })" class="btn btn-outline-dark"><i class="fas fa-pencil-alt"></i></a>
+                        <a href="@Url.Action("Delete", "Cities", new { id = item.Id })" class="btn btn-outline-dark"><i class="fas fa-trash-alt"></i></a>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
