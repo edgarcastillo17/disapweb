@@ -11,40 +11,70 @@
 <hr />
 
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-4">
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text" id="emailcontact"><i class="fas fa-envelope"></i></span>
+    <div class="row">
+        <div class="col-7 text-center">
+            <form class="flex-fill">
+                <div class="input-group mb-3 form-inline justify-content-center">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="emailcontact"><i class="fas fa-envelope"></i></span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Correo electrónico" aria-label="Recipient's username" aria-describedby="basic-addon1">
                 </div>
-                <input type="text" class="form-control" placeholder="Correo electrónico" aria-label="Recipient's username" aria-describedby="basic-addon1">
-            </div>
 
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text" id="namecontact"><i class="fas fa-user"></i></span>
+                <div class="input-group mb-3 form-inline justify-content-center">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="namecontact"><i class="fas fa-user"></i></span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Nombre completo" aria-label="Username" aria-describedby="basic-addon1">
                 </div>
-                <input type="text" class="form-control" placeholder="Nombre completo" aria-label="Username" aria-describedby="basic-addon1">
-            </div>
 
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text">Comentario</span>
+                <div class="input-group mb-3 form-inline justify-content-center">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Comentario</span>
+                    </div>
+                    <textarea class="form-control" aria-label="With textarea"></textarea>
                 </div>
-                <textarea class="form-control" aria-label="With textarea"></textarea>
-            </div>
 
-            <div class="text-center mb-3">
-                <button type="submit" class="btn btn-outline-primary"><i class="fas fa-paper-plane"></i> Enviar</button>
-            </div>
+                <div class="mb-3">
+                    <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#myModal"><i class="fas fa-paper-plane"></i> Enviar</button>
+                    
+                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalCenterTitle">¡Gracias!</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    Agradecemos tu comentario, tan pronto como sea posible alguien
+                                    se contactará contigo.
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Cerrar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-            <h4 class="text-center mb-3">¡Visita nuestras redes!</h4>
-            
-            <div class="text-center">
-                <a href="https://www.facebook.com" class="icono"><i class="fab fa-facebook fa-3x"></i></a>
-                <a href="https://www.twitter.com" class="icono"><i class="fab fa-twitter fa-3x"></i></a>
-                <a href="https://www.instagram.com/" class="icono"><i class="fab fa-instagram fa-3x"></i></a>
-                <a href="https://www.linkedin.com" class="icono"><i class="fab fa-linkedin fa-3x"></i></a>
+                <h4 class="mb-3">¡Visita nuestras redes!</h4>
+
+                <div class="text-center">
+                    <a href="https://www.facebook.com" class="icono"><i class="fab fa-facebook fa-3x"></i></a>
+                    <a href="https://www.twitter.com" class="icono"><i class="fab fa-twitter fa-3x"></i></a>
+                    <a href="https://www.instagram.com/" class="icono"><i class="fab fa-instagram fa-3x"></i></a>
+                    <a href="https://www.linkedin.com" class="icono"><i class="fab fa-linkedin fa-3x"></i></a>
+                </div>
+            </form>
+        </div>
+
+        <div class="col-5 justify-content-center">
+            <iframe id="mapa" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3363.8969514799924!2d-116.98899328482429!3d32.52889908104754!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80d94875c00b2a3d%3A0x281526cf22a3e2cc!2sInstituto%20Tecnol%C3%B3gico%20de%20Tijuana!5e0!3m2!1ses-419!2smx!4v1582153715853!5m2!1ses-419!2smx" width="425" height="300" frameborder="0" style="border:0;"></iframe>
+            <div class="row justify-content-center">
+                <p class="contacto"><i class="fas fa-phone"></i> Teléfono:<br />664-330-2592</p>
+                <p class="contacto"><i class="fas fa-envelope-open-text"></i> Correo Electrónico:<br />eventosapp@mail.com</p>
             </div>
         </div>
     </div>
