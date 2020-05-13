@@ -54,7 +54,8 @@
             </dl>
         </div>
         <p>
-            @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-            @Html.ActionLink("Back to List", "Index")
+            <a href="@Url.Action("Edit", "Suppliers", new { id = Model.Id })" class="btn btn-sm btn-outline-primary">Editar</a>
+            <a href="@Url.Action("Index", "Suppliers")" class="btn btn-sm btn-outline-dark">Regresar</a>
+            <a href="@Url.Action("Delete", "Suppliers", new { id = Model.Id })" class="btn btn-sm btn-outline-danger">Eliminar</a>
         </p>
     </div>

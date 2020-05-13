@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace ControlInventario.Controllers
 {
+    [Authorize]
     public class PrincipalController : Controller
     {
         // GET: Principal

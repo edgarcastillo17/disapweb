@@ -4,13 +4,21 @@
     ViewBag.Title = "Productos";
 }
 
-    <div class="espacio">
+<div class="row justify-content-center">
+    <p>
         <h2>Lista de Productos</h2>
+    </p>
+</div>
 
-        <p>
-            @Html.ActionLink("Añadir Nuevo", "Create")
-        </p>
-        <table class="table">
+<p>
+    <a href="@Url.Action("Create","Suppliers")" class="btn btn-primary btn-sm btn-icon-split">
+        <span class="icon text-white-50"> <i class="fas fa-plus"></i> </span>
+        <span class="text">Nuevo Proveedor</span>
+    </a>
+</p>
+
+@*<table class="table table-sm" id="myProducts">
+        <thead>
             <tr>
                 <th>
                     Código
@@ -32,35 +40,70 @@
                 </th>
                 <th></th>
             </tr>
+        </thead>
 
+        <tbody>
             @foreach (var item in Model)
             {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.ProductCode)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ProductName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Quantity)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Supplier.SupplierName)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-            </td>
-        </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ProductCode)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ProductName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Quantity)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Price)
+                    </td>
+                    <td>
+                        <a href="@Url.Action("ProductBySupplier","Products",new { supplierId = item.SupplierId})">@item.Supplier.SupplierName</a>
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                    </td>
+                </tr>
             }
+        </tbody>
+    </table>*@
 
-        </table>
-    </div>
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-xl-3 col-md-3 mb-4">
+            <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                <a href="@Url.Action("ProductBySupplier","Products",new { supplierId = item.SupplierId})">@item.Supplier.SupplierName</a>
+                            </div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                <a class="text-gray-800" href="@Url.Action("Details","Products",new { id=item.Id})">@item.ProductName</a>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-boxes fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+@section Scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        $(document).ready(function () {
+            $('#myProducts').DataTable();
+        });
+    </script>
+}

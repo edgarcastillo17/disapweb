@@ -10,6 +10,7 @@ using ControlInventario.Models;
 
 namespace ControlInventario.Controllers
 {
+    [Authorize]
     public class ProductsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -121,6 +122,11 @@ namespace ControlInventario.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult ProductBySupplier(int supplierId)
+        {
+            var products = db.Products.Where(p => p.SupplierId == supplierId).ToList();
+            return View(products);
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)

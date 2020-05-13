@@ -59,8 +59,8 @@
                 @Html.AntiForgeryToken()
 
                 <div class="form-actions no-color">
-                    <input type="submit" value="Delete" class="btn btn-default" /> |
-                    @Html.ActionLink("Back to List", "Index")
+                    <input class="btn btn-sm btn-outline-danger" type="submit" value="Eliminar"/>
+                    <a href="@Url.Action("Index", "Suppliers")" class="btn btn-sm btn-outline-dark">Regresar</a>
                 </div>
             }
         </div>
