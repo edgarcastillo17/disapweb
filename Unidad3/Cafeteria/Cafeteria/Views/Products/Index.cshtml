@@ -1,0 +1,189 @@
+﻿@model IEnumerable<Cafeteria.Models.Product>
+
+@{
+    Layout = null;
+}
+
+    <!-- Custom fonts for this template-->
+    <link href="~/Content/fonts/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+
+    <!-- Vendor CSS Files -->
+    <link href="~/Content/home/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Content/home/icofont.min.css" rel="stylesheet">
+    <link href="~/Content/home/boxicons.min.css" rel="stylesheet">
+    <link href="~/Content/home/remixicon.css" rel="stylesheet">
+    <link href="~/Content/home/venobox.css" rel="stylesheet">
+    <link href="~/Content/home/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="~/Content/home/style.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+    <link href="~/Content/layout/sb-admin-2.css" rel="stylesheet">
+    <link href="~/Content/Site.css" rel="stylesheet">
+
+<!-- ======= Header ======= -->
+<header id="header" class="fixed-top header-inner-pages">
+    <div class="container-fluid">
+
+        <div class="row justify-content-center">
+            <div class="col-xl-9 d-flex align-items-center justify-content-between">
+                <h1 class="logo"><a href="@Url.Action("Index","Home")">Winmer</a></h1>
+                <!-- Uncomment below if you prefer to use an image logo -->
+                <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+                <nav class="nav-menu d-none d-lg-block">
+                    <ul>
+                        <li class="active"><a href="@Url.Action("Index","Home")">Inicio</a></li>
+                        <li><a href="@Url.Action("Index","Products")">Menú</a></li>
+                        <li><a href="@Url.Action("Index","Home")">Acerca</a></li>
+                        <li><a href="@Url.Action("Index","Home")">Servicios</a></li>
+                        <li><a href="@Url.Action("Index","Home")">Contacto</a></li>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <li><a href="@Url.Action("Index","Purchases")">Información</a></li>
+                        }
+                        else
+                        {
+                            <li><a href="@Url.Action("Login","Account")">Iniciar Sesión</a></li>
+                        }
+                    </ul>
+                </nav><!-- .nav-menu -->
+            </div>
+        </div>
+
+    </div>
+</header><!-- End Header -->
+
+<div class="espacio">
+    @if (User.Identity.IsAuthenticated)
+    {
+        <p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
+    }
+
+<div class="row justify-content-center">
+    @foreach (var item in Model)
+    {
+        if (item.Type == "Bebida caliente")
+        {
+            <div class="mb-3" style="width: 15rem; margin:0.5rem;">
+                <img class="card-img-top" src="@Url.Action("GetImage","Products", new { id = item.Id})" alt="Alternate Text" />
+                <div class="card border-bottom-success shadow">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">@Html.DisplayFor(modelItem => item.ProductName)</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">$@Html.DisplayFor(modelItem => item.Price)</div>
+                                <hr />
+                                <button class="btn btn-sm btn-success" href="@Url.Action("Create","Purchases",new { id = item.Id})">¡Comprar!</button>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fab fa-hotjar fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+
+        if (@item.Type == "Bebida fría")
+        {
+            <div class="mb-3" style="width: 15rem; margin:0.5rem;">
+                <img class="card-img-top" src="@Url.Action("GetImage","Products", new { id = item.Id})" alt="Alternate Text" />
+                <div class="card border-bottom-success shadow">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">@Html.DisplayFor(modelItem => item.ProductName)</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">$@Html.DisplayFor(modelItem => item.Price)</div>
+                                <hr />
+                                <button class="btn btn-sm btn-success" href="@Url.Action("Create","Purchases",new { id = item.Id})">¡Comprar!</button>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-cubes fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+
+        if (@item.Type == "Alimento")
+        {
+            <div class="mb-3 margin-card" style="width: 15rem; margin:0.5rem;">
+                <img class="card-img-top" src="@Url.Action("GetImage","Products", new { id = item.Id})" alt="Alternate Text" />
+                <div class="card border-bottom-success shadow">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">@Html.DisplayFor(modelItem => item.ProductName)</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">$@Html.DisplayFor(modelItem => item.Price)</div>
+                                <hr />
+                                <button class="btn btn-sm btn-success" href="@Url.Action("Create","Purchases",new { id = item.Id})">¡Comprar!</button>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-utensils fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+</div>
+    
+</div>
+
+<!-- ======= Footer ======= -->
+<footer id="footer">
+    <div class="container">
+        <h3>Winmer</h3>
+        <div class="social-links">
+            <a href="https://twitter.com/" target="_blank" class="twitter"><i class="bx bxl-twitter"></i></a>
+            <a href="https://www.facebook.com/" target="_blank" class="facebook"><i class="bx bxl-facebook"></i></a>
+            <a href="https://www.instagram.com/" target="_blank" class="instagram"><i class="bx bxl-instagram"></i></a>
+            <a href="https://mx.linkedin.com/" target="_blank" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+        </div>
+        <div class="copyright">
+            &copy; Winmer: <strong><span>Castillo Medina</span></strong>.
+        </div>
+    </div>
+</footer><!-- End Footer -->
+
+<div id="preloader"></div>
+<a href="#" class="back-to-top"><i class="ri-arrow-up-line"></i></a>
+
+<!-- Bootstrap core JavaScript-->
+    <script src="~/Scripts/layout/jquery.min.js"></script>
+    <script src="~/Scripts/layout/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="~/Scripts/layout/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="~/Scripts/layout/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="~/Scripts/layout/Chart.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="~/Scripts/layout/chart-area-demo.js"></script>
+    <script src="~/Scripts/layout/chart-pie-demo.js"></script>
+
+    <!-- Vendor JS Files -->
+    <script src="~/Scripts/home/validate.js"></script>
+    <script src="~/Scripts/home/jquery.waypoints.min.js"></script>
+    <script src="~/Scripts/home/counterup.min.js"></script>
+    <script src="~/Scripts/home/isotope.pkgd.min.js"></script>
+    <script src="~/Scripts/home/venobox.min.js"></script>
+    <script src="~/Scripts/home/owl.carousel.min.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="~/Scripts/home/main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>

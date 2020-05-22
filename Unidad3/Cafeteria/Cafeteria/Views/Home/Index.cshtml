@@ -1,0 +1,345 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Winmer</title>
+    <meta content="" name="descriptison">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="~/Content/home/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Content/home/icofont.min.css" rel="stylesheet">
+    <link href="~/Content/home/boxicons.min.css" rel="stylesheet">
+    <link href="~/Content/home/remixicon.css" rel="stylesheet">
+    <link href="~/Content/home/venobox.css" rel="stylesheet">
+    <link href="~/Content/home/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="~/Content/home/style.css" rel="stylesheet">
+
+    <!-- =======================================================
+    * Template Name: KnightOne - v2.0.0
+    * Template URL: https://bootstrapmade.com/knight-simple-one-page-bootstrap-template/
+    * Author: BootstrapMade.com
+    * License: https://bootstrapmade.com/license/
+    ======================================================== -->
+</head>
+
+<body>
+
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top ">
+        <div class="container-fluid">
+
+            <div class="row justify-content-center">
+                <div class="col-xl-9 d-flex align-items-center justify-content-between">
+                    <h1 class="logo"><a href="@Url.Action("Index","Home")">Winmer</a></h1>
+                    <!-- Uncomment below if you prefer to use an image logo -->
+                    <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+                    <nav class="nav-menu d-none d-lg-block">
+                        <ul>
+                            <li class="active"><a href="@Url.Action("Index","Home")">Inicio</a></li>
+                            <li><a href="@Url.Action("Index","Products")">Menú</a></li>
+                            <li><a href="#about">Acerca</a></li>
+                            <li><a href="#services">Servicios</a></li>
+                            <li><a href="#contact">Contacto</a></li>
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <li><a href="@Url.Action("Index","Purchases")">Compras</a></li>
+                            }
+                            else
+                            {
+                                <li><a href="@Url.Action("Login","Account")">Iniciar Sesión</a></li>
+                            }
+                        </ul>
+                    </nav><!-- .nav-menu -->
+                </div>
+            </div>
+
+        </div>
+    </header><!-- End Header -->
+
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" class="d-flex flex-column justify-content-center">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-8">
+                    <h1>¡Bienvenido a Winmer!</h1>
+                    <h2>❛ El lugar que puedes visitar todos los días del año. ❜</h2>
+                </div>
+            </div>
+        </div>
+    </section><!-- End Hero -->
+
+    <main id="main">
+
+        <!-- ======= About Us Section ======= -->
+        <section id="about" class="about">
+            <div class="container">
+
+                <div class="section-title">
+                    <h2>Acerca de nosotros</h2>
+                    <p>Somos una franquicia en búsqueda de la satisfacción del cliente que desea grabar en su memoria los momentos que pase con nosotros en compañía del gran sabor que nos caracteriza.</p>
+                </div>
+
+                <div class="row content">
+                    <div class="col-lg-6">
+                        <p>
+                            Desde 2005 hemos esparcido los valores que nos categorizan como una de las mejores cafeterías de todo el país.
+                        </p>
+                        <ul>
+                            <li><i class="ri-check-double-line"></i> Perseverancia</li>
+                            <li><i class="ri-check-double-line"></i> Calidad</li>
+                            <li><i class="ri-check-double-line"></i> Lealtad</li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-6 pt-4 pt-lg-0">
+                        <p>
+                            Si deseas saber más de lo que somos, representamos o cómo hemos llegado hasta el punto en el que
+                            nos encontramos, no dudes en leer nuestra historia.
+                        </p>
+                        <a href="#" class="btn-learn-more">Aprender más</a>
+                    </div>
+                </div>
+
+            </div>
+        </section><!-- End About Us Section -->
+        <!-- ======= Counts Section ======= -->
+        <section id="counts" class="counts">
+            <div class="container">
+
+                <div class="text-center title">
+                    <h3>¿Qué hemos logrado?</h3>
+                    <p>Juntos hemos recorrido una gran trayectoria de la que estamos orgullosos.</p>
+                </div>
+
+                <div class="row counters">
+
+                    <div class="col-lg-3 col-6 text-center">
+                        <span data-toggle="counter-up">57</span>
+                        <p>Productos</p>
+                    </div>
+
+                    <div class="col-lg-3 col-6 text-center">
+                        <span data-toggle="counter-up">15</span>
+                        <p>Sucursales</p>
+                    </div>
+
+                    <div class="col-lg-3 col-6 text-center">
+                        <span data-toggle="counter-up">2,351</span>
+                        <p>Clientes</p>
+                    </div>
+
+                    <div class="col-lg-3 col-6 text-center">
+                        <span data-toggle="counter-up">36</span>
+                        <p>Trabajadores</p>
+                    </div>
+
+                </div>
+
+            </div>
+        </section><!-- End Counts Section -->
+        <!-- ======= Services Section ======= -->
+        <section id="services" class="services">
+            <div class="container">
+
+                <div class="section-title">
+                    <h2>Servicios</h2>
+                    <p>No queremos simplemente ofrecer bebidas y alimentos, nuestra principal misión es brindar al cliente una experiencia inolvidable, dejándolo con más ánimos de volver solo o en compañía, queremos ser su lugar de confianza.</p>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                        <div class="icon-box">
+                            <div class="icon"><i class="bx bx-coffee"></i></div>
+                            <h4><a href="">Sabor</a></h4>
+                            <p>Principalmente, ofrecemos la mejor calidad en nuestro menú.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
+                        <div class="icon-box">
+                            <div class="icon"><i class="bx bx-time"></i></div>
+                            <h4><a href="">Tiempo</a></h4>
+                            <p>Procuramos satisfacer a nuestros clientes en el menor tiempo posible.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
+                        <div class="icon-box">
+                            <div class="icon"><i class="bx bx-chair"></i></div>
+                            <h4><a href="">Instalaciones</a></h4>
+                            <p>Contamos con áreas perfectamente amuebladas para la comodidad de nuestros visitantes.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
+                        <div class="icon-box">
+                            <div class="icon"><i class="bx bx-music"></i></div>
+                            <h4><a href="">Ambiente</a></h4>
+                            <p>Con el objetivo de ser su compañía favorita, reproducimos música acompañada de gran iluminación que calma nuestras emociones.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
+                        <div class="icon-box">
+                            <div class="icon"><i class="bx bx-donate-heart"></i></div>
+                            <h4><a href=""></a>Cercanía</h4>
+                            <p>Intentamos estar presentes en todo lugar y en todo momento, nuestra gran variedad de sucursales están abiertas las veinticuatro horas.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
+                        <div class="icon-box">
+                            <div class="icon"><i class="bx bx-wink-smile"></i></div>
+                            <h4><a href="">Actitud</a></h4>
+                            <p>Nuestros trabajadores tienen siempre la mejor actitud y toda la disposición de ayudar en todo momento.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section><!-- End Services Section -->
+        <!-- ======= Cta Section ======= -->
+        <section id="cta" class="cta">
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-lg-9 text-center text-lg-left">
+                        <h3>¡Siempre hay una primera vez!</h3>
+                        <p>Te invitamos a probar nuestros productos para que vivas la experiencia winsumer.</p>
+                    </div>
+                    <div class="col-lg-3 cta-btn-container text-center">
+                        <a class="cta-btn align-middle" href="#">¡Comprar!</a>
+                    </div>
+                </div>
+
+            </div>
+        </section><!-- End Cta Section -->
+        <!-- ======= Contact Section ======= -->
+        <section id="contact" class="contact">
+            <div class="container">
+
+                <div class="section-title">
+                    <h2>Contacto</h2>
+                    <p>Somos felices de recibir tus opiniones y comentarios, siempre buscamos la mejora para nuestros clientes.</p>
+                </div>
+            </div>
+
+            <div>
+                <iframe style="border:0; width: 100%; height: 350px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3363.8586487332436!2d-116.9892892846785!3d32.529921981047345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80d94875d6e6b3d5%3A0x12c528793fc3f572!2sInstituto%20Tecnol%C3%B3gico%20de%20Tijuana!5e0!3m2!1ses-419!2smx!4v1589670553454!5m2!1ses-419!2smx" frameborder="0" allowfullscreen></iframe>
+            </div>
+
+            <div class="container">
+
+                <div class="row mt-5">
+
+                    <div class="col-lg-4">
+                        <div class="info">
+                            <div class="address">
+                                <i class="ri-map-pin-line"></i>
+                                <h4>Ubicación:</h4>
+                                <p>Calz del Tecnológico s/n, Tomas Aquino, 22414 Tijuana, B.C.</p>
+                            </div>
+
+                            <div class="email">
+                                <i class="ri-mail-line"></i>
+                                <h4>Correo:</h4>
+                                <p>winmer@mail.com</p>
+                            </div>
+
+                            <div class="phone">
+                                <i class="ri-phone-line"></i>
+                                <h4>Teléfono:</h4>
+                                <p>+52 664 331 2592</p>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-lg-8 mt-5 mt-lg-0">
+
+                        <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                            <div class="form-row">
+                                <div class="col-md-6 form-group">
+                                    <input type="text" name="name" class="form-control" id="name" placeholder="Nombre" data-rule="minlen:4" data-msg="Ingresa mínimo cuatro caracteres." />
+                                    <div class="validate"></div>
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <input type="email" class="form-control" name="email" id="email" placeholder="Correo electrónico" data-rule="email" data-msg="Ingresa un correo válido." />
+                                    <div class="validate"></div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="¡Haznos saber tu opinión!" placeholder="Comentario..."></textarea>
+                                <div class="validate"></div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="loading">Cargando...</div>
+                                <div class="error-message"></div>
+                                <div class="sent-message">Tu mensaje ha sido enviado. ¡Gracias!</div>
+                            </div>
+                            <div class="text-center"><button type="submit">Enviar</button></div>
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </section><!-- End Contact Section -->
+
+    </main><!-- End #main -->
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="container">
+            <h3>Winmer</h3>
+            <div class="social-links">
+                <a href="https://twitter.com/" target="_blank" class="twitter"><i class="bx bxl-twitter"></i></a>
+                <a href="https://www.facebook.com/" target="_blank" class="facebook"><i class="bx bxl-facebook"></i></a>
+                <a href="https://www.instagram.com/" target="_blank" class="instagram"><i class="bx bxl-instagram"></i></a>
+                <a href="https://mx.linkedin.com/" target="_blank" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+            </div>
+            <div class="copyright">
+                &copy; Winmer: <strong><span>Castillo Medina</span></strong>.
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+
+    <div id="preloader"></div>
+    <a href="#" class="back-to-top"><i class="ri-arrow-up-line"></i></a>
+
+    <!-- Vendor JS Files -->
+    <script src="~/Scripts/home/jquery.min.js"></script>
+    <script src="~/Scripts/home/bootstrap.bundle.min.js"></script>
+    <script src="~/Scripts/home/jquery.easing.min.js"></script>
+    <script src="~/Scripts/home/validate.js"></script>
+    <script src="~/Scripts/home/jquery.waypoints.min.js"></script>
+    <script src="~/Scripts/home/counterup.min.js"></script>
+    <script src="~/Scripts/home/isotope.pkgd.min.js"></script>
+    <script src="~/Scripts/home/venobox.min.js"></script>
+    <script src="~/Scripts/home/owl.carousel.min.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="~/Scripts/home/main.js"></script>
+
+</body>
+
+</html>
