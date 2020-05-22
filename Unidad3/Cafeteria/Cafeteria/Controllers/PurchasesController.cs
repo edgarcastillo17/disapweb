@@ -17,8 +17,23 @@ namespace Cafeteria.Controllers
         // GET: Purchases
         public ActionResult Index()
         {
-                var purchases = db.Purchases.Include(p => p.Product);
-                return View(purchases.ToList());
+            var statspur = db.Purchases.ToList();
+            var statspro = db.Products.ToList();
+            var popular = new List<Purchase>();
+            var cheap = new List<Purchase>();
+
+            foreach (var item in statspur)
+            {
+                if (item.Quantity >= 5)
+                {
+                    popular.Add(item);
+                }
+            }
+
+            ViewBag.Popular = popular;
+            ViewBag.Cheap = cheap;
+            var purchases = db.Purchases.Include(p => p.Product);
+            return View(purchases.ToList());
         }
 
         // GET: Purchases/Details/5
@@ -55,6 +70,9 @@ namespace Cafeteria.Controllers
         {
             if (ModelState.IsValid)
             {
+                Product product = db.Products.Find(purchase.ProductId);
+                decimal total = purchase.Quantity * product.Price;
+                purchase.Total = total;
                 db.Purchases.Add(purchase);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -132,7 +150,7 @@ namespace Cafeteria.Controllers
             base.Dispose(disposing);
         }
 
-        public JsonResult GetPrice(int? id)
+        /*public JsonResult GetPrice(int id)
         {
             if (!Request.IsAjaxRequest())
             {
@@ -142,6 +160,6 @@ namespace Cafeteria.Controllers
             Product product = db.Products.Find(id);
             int precio = product.Price;
             return new JsonResult { Data = new { precio = precio } };
-        }
+        }*/
     }
 }

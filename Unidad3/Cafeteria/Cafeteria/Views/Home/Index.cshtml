@@ -53,17 +53,23 @@
 
                     <nav class="nav-menu d-none d-lg-block">
                         <ul>
-                            <li class="active"><a href="@Url.Action("Index","Home")">Inicio</a></li>
-                            <li><a href="@Url.Action("Index","Products")">Menú</a></li>
-                            <li><a href="#about">Acerca</a></li>
-                            <li><a href="#services">Servicios</a></li>
-                            <li><a href="#contact">Contacto</a></li>
                             @if (User.Identity.IsAuthenticated)
                             {
+                                <li class="active"><a href="@Url.Action("Index","Home")">Inicio</a></li>
+                                <li><a href="@Url.Action("Index","Products")">Menú</a></li>
+                                <li><a href="#about">Acerca</a></li>
+                                <li><a href="#services">Servicios</a></li>
+                                <li><a href="#contact">Contacto</a></li>
                                 <li><a href="@Url.Action("Index","Purchases")">Compras</a></li>
                             }
                             else
                             {
+                                <li class="active"><a href="@Url.Action("Index","Home")">Inicio</a></li>
+                                <li><a href="@Url.Action("Index","Products")">Menú</a></li>
+                                <li><a href="#about">Acerca</a></li>
+                                <li><a href="#services">Servicios</a></li>
+                                <li><a href="#contact">Contacto</a></li>
+                                <li><a href="@Url.Action("Index","Purchases")">Compras</a></li>
                                 <li><a href="@Url.Action("Login","Account")">Iniciar Sesión</a></li>
                             }
                         </ul>
@@ -226,7 +232,7 @@
                         <p>Te invitamos a probar nuestros productos para que vivas la experiencia winsumer.</p>
                     </div>
                     <div class="col-lg-3 cta-btn-container text-center">
-                        <a class="cta-btn align-middle" href="#">¡Comprar!</a>
+                        <a class="cta-btn align-middle" href="@Url.Action("Index","Purchases")">¡Comprar!</a>
                     </div>
                 </div>
 

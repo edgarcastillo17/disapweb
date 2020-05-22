@@ -4,72 +4,276 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<div class="row justify-content-center">
+    <h2>¿Esperando tu pedido?</h2>
+    <br />
+    <br />
+</div>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Product.ProductName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PurchaseId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ClientName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Quantity)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Total)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Product.Price)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Comment)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Status)
-        </th>
-        <th></th>
-    </tr>
+<a class="btn btn-sm btn-success text-white"><i class="fas fa-shopping-cart"></i> ¡Comprar!</a>
+<br />
+<br />
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Product.ProductName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PurchaseId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ClientName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Quantity)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Total)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Product.Price)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Comment)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Status)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
+<div class="row justify-content-center">
+    @foreach (var item in ViewBag.Popular)
+    {
+        if (item.Product.Type == "Bebida caliente")
+        {
+            <div class="mb-3" style="width: 15rem; margin:0.5rem;">
+                <img class="card-img-top" src="@Url.Action("GetImage","Products", new { id = item.Product.Id})" alt="Alternate Text" />
+                <div class="card border-bottom-success shadow">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">$@item.Product.Price</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">@item.Product.ProductName</div>
+                                @if (User.Identity.IsAuthenticated)
+                                {
+                                    <hr />
+                                    <a class="btn btn-sm btn-success" href="@Url.Action("Details","Products", new { id=item.Id})">Detalles</a>
+                                }
+                            </div>
+                            <div class="col-auto">
+                                <i class="fab fa-hotjar fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+
+        if (item.Product.Type == "Bebida fría")
+        {
+            <div class="mb-3" style="width: 15rem; margin:0.5rem;">
+                <img class="card-img-top" src="@Url.Action("GetImage","Products", new { item.Product.Id})" alt="Alternate Text" />
+                <div class="card border-bottom-success shadow">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">$@item.Product.Price</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">@item.Product.ProductName</div>
+                                @if (User.Identity.IsAuthenticated)
+                                {
+                                    <hr />
+                                    <a class="btn btn-sm btn-success" href="@Url.Action("Details","Products", new { id=item.Id})">Detalles</a>
+                                }
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-cubes fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+
+        if (item.Product.Type == "Alimento")
+        {
+            <div class="mb-3 margin-card" style="width: 15rem; margin:0.5rem;">
+                <img class="card-img-top" src="@Url.Action("GetImage","Products", new { item.Product.Id})" alt="Alternate Text" />
+                <div class="card border-bottom-success shadow">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">$@item.Product.Price</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">@item.Product.ProductName</div>
+                                @if (User.Identity.IsAuthenticated)
+                                {
+                                    <hr />
+                                    <a class="btn btn-sm btn-success" href="@Url.Action("Details","Products", new { id=item.Id})">Detalles</a>
+                                }
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-utensils fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+</div>
+
+<div class="row justify-content-center">
+    @foreach (var item in ViewBag.Cheap)
+    {
+        if (item.Product.Type == "Bebida caliente")
+        {
+            <div class="mb-3" style="width: 15rem; margin:0.5rem;">
+                <img class="card-img-top" src="@Url.Action("GetImage","Products", new { id = item.Product.Id})" alt="Alternate Text" />
+                <div class="card border-bottom-success shadow">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">$@item.Product.Price</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">@item.Product.ProductName</div>
+                                @if (User.Identity.IsAuthenticated)
+                                {
+                                    <hr />
+                                    <a class="btn btn-sm btn-success" href="@Url.Action("Details","Products", new { id=item.Id})">Detalles</a>
+                                }
+                            </div>
+                            <div class="col-auto">
+                                <i class="fab fa-hotjar fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+
+        if (item.Product.Type == "Bebida fría")
+        {
+            <div class="mb-3" style="width: 15rem; margin:0.5rem;">
+                <img class="card-img-top" src="@Url.Action("GetImage","Products", new { item.Product.Id})" alt="Alternate Text" />
+                <div class="card border-bottom-success shadow">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">$@item.Product.Price</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">@item.Product.ProductName</div>
+                                @if (User.Identity.IsAuthenticated)
+                                {
+                                    <hr />
+                                    <a class="btn btn-sm btn-success" href="@Url.Action("Details","Products", new { id=item.Id})">Detalles</a>
+                                }
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-cubes fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+
+        if (item.Product.Type == "Alimento")
+        {
+            <div class="mb-3 margin-card" style="width: 15rem; margin:0.5rem;">
+                <img class="card-img-top" src="@Url.Action("GetImage","Products", new { item.Product.Id})" alt="Alternate Text" />
+                <div class="card border-bottom-success shadow">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">$@item.Product.Price</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">@item.Product.ProductName</div>
+                                @if (User.Identity.IsAuthenticated)
+                                {
+                                    <hr />
+                                    <a class="btn btn-sm btn-success" href="@Url.Action("Details","Products", new { id=item.Id})">Detalles</a>
+                                }
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-utensils fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+</div>
+
+<table class="table table-sm table-striped table-hover" id="myPurchases">
+    <thead>
+        <tr>
+            <th>
+                No. Nota
+            </th>
+            <th>
+                Cliente
+            </th>
+            <th>
+                Producto
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Total)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <th></th>
+            }
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PurchaseId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ClientName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Product.ProductName)
+                </td>
+                <td>
+                    $@Html.DisplayFor(modelItem => item.Product.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Quantity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Total)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <td>
+                        <a class="btn btn-sm btn-dark" href="@Url.Action("Details","Purchases", new { id=item.Id})">Detalles</a>
+                    </td>
+                }
+            </tr>
+        }
+    </tbody>
 
 </table>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script src="//cdn.datatables.net/plug-ins/a5734b29083/i18n/Spanish.json"></script>
+    <script>
+        $(document).ready(function () {
+            $('#myPurchases').DataTable({
+                "language": {
+                    "sProcessing": "Procesando...",
+                    "sLengthMenu": "Mostrar _MENU_ registros",
+                    "sZeroRecords": "No se encontraron resultados",
+                    "sEmptyTable": "Ningún dato disponible en esta tabla",
+                    "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                    "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                    "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+                    "sInfoPostFix": "",
+                    "sSearch": "Buscar:",
+                    "sUrl": "",
+                    "sInfoThousands": ",",
+                    "sLoadingRecords": "Cargando...",
+                    "oPaginate": {
+                        "sFirst": "Primero",
+                        "sLast": "Último",
+                        "sNext": "Siguiente",
+                        "sPrevious": "Anterior"
+                    },
+                    "oAria": {
+                        "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                    }
+                }
+            });
+        });
+    </script>
+}

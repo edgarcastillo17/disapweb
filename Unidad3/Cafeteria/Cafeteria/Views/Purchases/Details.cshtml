@@ -67,8 +67,10 @@
         </dd>
 
     </dl>
+
+    <div>
+        <a href="@Url.Action("Index","Purchases")" class="btn btn-sm btn-dark text-white"><i class="fas fa-fast-backward"></i> Regresar</a>
+        <a href="@Url.Action("Edit","Purchases", new { id=Model.Id })" class="btn btn-sm btn-success text-white"><i class="fas fa-edit"></i> Editar</a>
+        <a href="@Url.Action("Delete","Purchases", new { id=Model.Id })" class="btn btn-sm btn-danger text-white"><i class="fas fa-recycle"></i> Eliminar</a>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

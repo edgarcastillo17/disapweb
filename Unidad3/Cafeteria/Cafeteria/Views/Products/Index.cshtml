@@ -60,9 +60,7 @@
 <div class="espacio">
     @if (User.Identity.IsAuthenticated)
     {
-        <p>
-            @Html.ActionLink("Create New", "Create")
-        </p>
+        <a href="@Url.Action("Create", "Products")" class="btn btn-sm btn-success"><i class="fas fa-plus"></i> Añadir</a>
     }
 
 <div class="row justify-content-center">
@@ -78,8 +76,11 @@
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-success text-uppercase mb-1">@Html.DisplayFor(modelItem => item.ProductName)</div>
                                 <div class="h5 mb-0 font-weight-bold text-gray-800">$@Html.DisplayFor(modelItem => item.Price)</div>
-                                <hr />
-                                <button class="btn btn-sm btn-success" href="@Url.Action("Create","Purchases",new { id = item.Id})">¡Comprar!</button>
+                                @if (User.Identity.IsAuthenticated)
+                                {
+                                    <hr />
+                                    <a class="btn btn-sm btn-success" href="@Url.Action("Details","Products", new { id=item.Id})">Detalles</a>
+                                }
                             </div>
                             <div class="col-auto">
                                 <i class="fab fa-hotjar fa-2x text-gray-300"></i>
@@ -100,8 +101,11 @@
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-success text-uppercase mb-1">@Html.DisplayFor(modelItem => item.ProductName)</div>
                                 <div class="h5 mb-0 font-weight-bold text-gray-800">$@Html.DisplayFor(modelItem => item.Price)</div>
-                                <hr />
-                                <button class="btn btn-sm btn-success" href="@Url.Action("Create","Purchases",new { id = item.Id})">¡Comprar!</button>
+                                @if (User.Identity.IsAuthenticated)
+                                {
+                                    <hr />
+                                    <a class="btn btn-sm btn-success" href="@Url.Action("Details","Products", new { id=item.Id})">Detalles</a>
+                                }
                             </div>
                             <div class="col-auto">
                                 <i class="fas fa-cubes fa-2x text-gray-300"></i>
@@ -122,8 +126,11 @@
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-success text-uppercase mb-1">@Html.DisplayFor(modelItem => item.ProductName)</div>
                                 <div class="h5 mb-0 font-weight-bold text-gray-800">$@Html.DisplayFor(modelItem => item.Price)</div>
-                                <hr />
-                                <button class="btn btn-sm btn-success" href="@Url.Action("Create","Purchases",new { id = item.Id})">¡Comprar!</button>
+                                @if (User.Identity.IsAuthenticated)
+                                {
+                                    <hr />
+                                    <a class="btn btn-sm btn-success" href="@Url.Action("Details","Products", new { id=item.Id})">Detalles</a>
+                                }
                             </div>
                             <div class="col-auto">
                                 <i class="fas fa-utensils fa-2x text-gray-300"></i>
