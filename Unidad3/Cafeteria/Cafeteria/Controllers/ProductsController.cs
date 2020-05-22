@@ -21,10 +21,24 @@ namespace Cafeteria.Controllers
         // GET: Products
         public ActionResult Index()
         {
+            var stats = db.Products.ToList();
+            var cheap = new List<Product>();
+            var news = new List<Product>();
+
+            foreach (var item in stats)
+            {
+                if (item.Price <= 75)
+                {
+                    cheap.Add(item);
+                }
+            }
+
+            ViewBag.Cheap = cheap;
             return View(db.Products.ToList());
         }
 
         // GET: Products/Details/5
+        [Authorize]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -40,6 +54,7 @@ namespace Cafeteria.Controllers
         }
 
         // GET: Products/Create
+        [Authorize]
         public ActionResult Create()
         {
             return View();
@@ -48,6 +63,7 @@ namespace Cafeteria.Controllers
         // POST: Products/Create
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(Product product)
@@ -82,6 +98,7 @@ namespace Cafeteria.Controllers
         }
 
         // GET: Products/Edit/5
+        [Authorize]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -100,6 +117,7 @@ namespace Cafeteria.Controllers
         // POST: Products/Edit/5
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(Product product)
@@ -134,6 +152,7 @@ namespace Cafeteria.Controllers
         }
 
         // GET: Products/Delete/5
+        [Authorize]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -149,6 +168,7 @@ namespace Cafeteria.Controllers
         }
 
         // POST: Products/Delete/5
+        [Authorize]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
@@ -167,7 +187,6 @@ namespace Cafeteria.Controllers
             }
             base.Dispose(disposing);
         }
-
         public ActionResult GetImage (int id)
         {
             Product productsk = db.Products.Find(id);

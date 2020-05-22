@@ -1811,11 +1811,14 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\accesibles.png" />
     <Content Include="Images\homecounter.jpg" />
     <Content Include="Images\homecover.jpg" />
     <Content Include="Images\homepurchase.jpg" />
     <Content Include="Images\homeservices.jpg" />
     <Content Include="Images\login.jpg" />
+    <Content Include="Images\novedades.png" />
+    <Content Include="Images\populares.png" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -2057,7 +2060,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Images\Productos\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

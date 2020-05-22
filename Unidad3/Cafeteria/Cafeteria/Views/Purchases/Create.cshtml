@@ -4,97 +4,149 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
-
-
-@using (Html.BeginForm())
+@if (!User.Identity.IsAuthenticated)
 {
-    @Html.AntiForgeryToken()
+    Layout = null;
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top header-inner-pages">
+        <div class="container-fluid">
 
-    <div class="form-horizontal">
-        <h4>Purchase</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.PurchaseId, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.PurchaseId, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.PurchaseId, "", new { @class = "text-danger" })
-            </div>
-        </div>
+            <div class="row justify-content-center">
+                <div class="col-xl-9 d-flex align-items-center justify-content-between">
+                    <h1 class="logo"><a href="@Url.Action("Index","Home")">Winmer</a></h1>
+                    <!-- Uncomment below if you prefer to use an image logo -->
+                    <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.ClientName, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.ClientName, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ClientName, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label class="control-label col-md-2">Producto</label>
-            <div class="col-md-10">
-                <select name="ProductId" class="form-control product" id="productName">
-                    <option selected disabled>Elige un producto</option>
-                    @foreach (var item in ViewBag.Products)
-                    {
-                        <option value="@item.Id">@item.ProductName — $@item.Price</option>
-                    }
-                </select>
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Quantity, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <input type="text" name="Quantity" class="form-control" id="txtCantidad" />
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Comment, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <input type="text" name="Comment" class="form-control" />
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Status, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-10">
-                <button type="submit" class="btn btn-success">¡Comprar!</button>
-            </div>
-        </div>
-
-        <div class="modal fade" id="totalModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalCenterTitle">¡Confirma tu compra!</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <div id="lblModal"></div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Regresar</button>
-                        <input type="submit" value="Aceptar" class="btn btn-default" data-toggle="modal" data-target="#totalModal" />
-                    </div>
+                    <nav class="nav-menu d-none d-lg-block">
+                        <ul>
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <li class="active"><a href="@Url.Action("Index","Home")">Inicio</a></li>
+                                <li><a href="@Url.Action("Index","Products")">Menú</a></li>
+                                <li><a href="#about">Acerca</a></li>
+                                <li><a href="#services">Servicios</a></li>
+                                <li><a href="#contact">Contacto</a></li>
+                                <li><a href="@Url.Action("Index","Purchases")">Compras</a></li>
+                            }
+                            else
+                            {
+                                <li class="active"><a href="@Url.Action("Index","Home")">Inicio</a></li>
+                                <li><a href="@Url.Action("Index","Products")">Menú</a></li>
+                                <li><a href="#about">Acerca</a></li>
+                                <li><a href="#services">Servicios</a></li>
+                                <li><a href="#contact">Contacto</a></li>
+                                <li><a href="@Url.Action("Index","Purchases")">Compras</a></li>
+                                <li><a href="@Url.Action("Login","Account")">Iniciar Sesión</a></li>
+                            }
+                        </ul>
+                    </nav><!-- .nav-menu -->
                 </div>
             </div>
-        </div>
 
-    </div>
+        </div>
+    </header><!-- End Header -->
+
+    <!-- Custom fonts for this template-->
+    <link href="~/Content/fonts/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+
+    <!-- Vendor CSS Files -->
+    <link href="~/Content/home/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Content/home/icofont.min.css" rel="stylesheet">
+    <link href="~/Content/home/boxicons.min.css" rel="stylesheet">
+    <link href="~/Content/home/remixicon.css" rel="stylesheet">
+    <link href="~/Content/home/venobox.css" rel="stylesheet">
+    <link href="~/Content/home/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="~/Content/home/style.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+    <link href="~/Content/layout/sb-admin-2.css" rel="stylesheet">
+    <link href="~/Content/Site.css" rel="stylesheet" />
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
+<div class="espacio row justify-content-center">
+    <div class="col-md-5">
+        <div class="card" style="width:25rem; margin:1rem;">
+            <div class="card-header bg-success text-white text-center">¡Compra con confianza!</div>
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="card-body">
+                    <div class="form-horizontal">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                        <div class="form-group">
+                            <label class="font-weight-bold font-italic text-success">¡Aquí tu nombre!</label>
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.ClientName, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.ClientName, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="font-weight-bold font-italic text-success">¿Qué quieres comprar?</label>
+                            <div class="col-md-10">
+                                <select name="ProductId" class="form-control product" id="productName">
+                                    <option selected disabled>Elige un producto</option>
+                                    @foreach (var item in ViewBag.Products)
+                                    {
+                                        <option value="@item.Id">@item.ProductName — $@item.Price</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="font-weight-bold font-italic text-success">Cantidad:</label>
+                            <div class="col-md-10">
+                                <input type="text" name="Quantity" class="form-control" id="txtCantidad" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="font-weight-bold font-italic text-success">Comentario:</label>
+                            <div class="col-md-10">
+                                <input type="text" name="Comment" class="form-control" />
+                            </div>
+                        </div>
+
+                        <div class="form-group text-center">
+                            <div class="col-md-10">
+                                <button type="submit" class="btn btn-success btn-sm">¡Comprar!</button>
+                                <a href="@Url.Action("Index","Products")" class="btn btn-sm btn-dark text-white" style="margin: 0.5rem;"><i class="fas fa-fast-backward"></i> Regresar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
 </div>
+
+@if (!User.Identity.IsAuthenticated)
+{
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="container-fluid">
+            <h3>Winmer</h3>
+            <div class="social-links">
+                <a href="https://twitter.com/" target="_blank" class="twitter"><i class="bx bxl-twitter"></i></a>
+                <a href="https://www.facebook.com/" target="_blank" class="facebook"><i class="bx bxl-facebook"></i></a>
+                <a href="https://www.instagram.com/" target="_blank" class="instagram"><i class="bx bxl-instagram"></i></a>
+                <a href="https://mx.linkedin.com/" target="_blank" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+            </div>
+            <div class="copyright">
+                &copy; Winmer: <strong><span>Castillo Medina</span></strong>.
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer -->
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+}

@@ -62,11 +62,11 @@
                                                 <hr />
                                                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                                                 <div class="form-group user">
-                                                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control form-control-user", @placeholder = "Correo electrónico . . ." })
+                                                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control form-control-user", @placeholder = "Correo electrónico" })
                                                     @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
                                                 </div>
                                                 <div class="form-group user">
-                                                    @Html.PasswordFor(m => m.Password, new { @class = "form-control form-control-user", @placeholder = "Contraseña . . ." })
+                                                    @Html.PasswordFor(m => m.Password, new { @class = "form-control form-control-user", @placeholder = "Contraseña" })
                                                     @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
                                                 </div>
                                                 <div class="form-group user">
