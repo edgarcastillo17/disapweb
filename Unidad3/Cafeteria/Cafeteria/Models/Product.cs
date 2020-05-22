@@ -11,16 +11,21 @@ namespace Cafeteria.Models
     {
         public int Id { get; set; }
         [Display(Name = "Código de Producto")]
+        [Required]
         public int ProductId { get; set; }
         [Display(Name = "Nombre")]
+        [Required]
         public string ProductName { get; set; }
         [Display(Name = "Tipo")]
+        [Required]
         public string Type { get; set; }
         [Display(Name = "Descripción")]
         public string Description { get; set; }
         [Display(Name = "Precio")]
+        [Required]
         public int Price { get; set; }
         [Display(Name = "Imagen")]
+        [Required]
         public byte[] Image { get; set; }
     }
 }

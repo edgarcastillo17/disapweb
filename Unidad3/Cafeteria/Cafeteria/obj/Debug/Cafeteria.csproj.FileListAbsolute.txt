@@ -133,3 +133,4 @@ C:\Users\edgar\Downloads\DAW\Cafeteria\Cafeteria\obj\Debug\Cafeteria.Migrations.
 C:\Users\edgar\Downloads\DAW\Cafeteria\Cafeteria\obj\Debug\Cafeteria.Migrations.DeleteTotalReturn.resources
 C:\Users\edgar\Downloads\DAW\Cafeteria\Cafeteria\obj\Debug\Cafeteria.Migrations.DeletePicture.resources
 C:\Users\edgar\Downloads\DAW\Cafeteria\Cafeteria\obj\Debug\Cafeteria.Migrations.AddProductImage.resources
+C:\Users\edgar\Downloads\DAW\Cafeteria\Cafeteria\obj\Debug\Cafeteria.Migrations.DataAnnotations.resources
