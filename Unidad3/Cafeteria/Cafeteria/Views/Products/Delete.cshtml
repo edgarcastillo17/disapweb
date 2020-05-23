@@ -1,38 +1,40 @@
 ﻿@model Cafeteria.Models.Product
 
+<link href="~/Content/layout/sb-admin-2.css" rel="stylesheet" />
+
 @{
     ViewBag.Title = "Delete";
 }
 
-    <div class="row justify-content-center">
-        <div class="card" style="width:25rem; margin:1rem;">
-            <img class="card-img-top" src="@Url.Action("GetImage","Products", new { id = Model.Id})" alt="Alternate Text" />
-            <div class="card-header text-center bg-danger text-white">¿Seguro que deseas eliminar @Model.ProductName?</div>
-            <div class="card-body">
-                <table>
-                    <tr>
-                        <td class="font-weight-bold font-italic text-danger">Tipo: </td>
-                        <td> @Model.Type</td>
-                    </tr>
-                    <tr>
-                        <td class="font-weight-bold font-italic text-danger">Descripción: </td>
-                        <td> @Model.Description</td>
-                    </tr>
-                    <tr>
-                        <td class="font-weight-bold font-italic text-danger">Precio: </td>
-                        <td> $@Model.Price</td>
-                    </tr>
-                    <tr>
-                    </tr>
-                </table>
+<div class="row justify-content-center">
+    <div class="card" style="width:25rem; margin:1rem;">
+        <img class="card-img-top" src="@Url.Action("GetImage","Products", new { id = Model.Id})" alt="Alternate Text" />
+        <div class="card-header text-center bg-danger text-white">¿Seguro que deseas eliminar @Model.ProductName?</div>
+        <div class="card-body">
+            <table>
+                <tr>
+                    <td class="font-weight-bold font-italic text-danger">Tipo: </td>
+                    <td> @Model.Type</td>
+                </tr>
+                <tr>
+                    <td class="font-weight-bold font-italic text-danger">Descripción: </td>
+                    <td> @Model.Description</td>
+                </tr>
+                <tr>
+                    <td class="font-weight-bold font-italic text-danger">Precio: </td>
+                    <td> $@Model.Price</td>
+                </tr>
+                <tr>
+                </tr>
+            </table>
+        </div>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div class="text-center">
+                <input type="submit" value="Eliminar" class="btn btn-sm btn-danger" />
+                <a href="@Url.Action("Index", "Products")" class="btn btn-sm btn-dark text-white" style="margin: 0.5rem;"><i class="fas fa-fast-backward"></i> Regresar</a>
             </div>
-            @using (Html.BeginForm())
-            {
-                @Html.AntiForgeryToken()
-                <div class="text-center">
-                    <input type="submit" value="Eliminar" class="btn btn-sm btn-danger" />
-                    <a href="@Url.Action("Index", "Products")" class="btn btn-sm btn-dark text-white" style="margin: 0.5rem;"><i class="fas fa-fast-backward"></i> Regresar</a>
-                </div>
-            }
-            </div>
+        }
     </div>
+</div>

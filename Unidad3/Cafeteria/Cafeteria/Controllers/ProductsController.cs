@@ -23,7 +23,6 @@ namespace Cafeteria.Controllers
         {
             var stats = db.Products.ToList();
             var cheap = new List<Product>();
-            var news = new List<Product>();
 
             foreach (var item in stats)
             {

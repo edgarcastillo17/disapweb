@@ -18,9 +18,7 @@ namespace Cafeteria.Controllers
         public ActionResult Index()
         {
             var statspur = db.Purchases.ToList();
-            var statspro = db.Products.ToList();
             var popular = new List<Purchase>();
-            var cheap = new List<Purchase>();
 
             foreach (var item in statspur)
             {
@@ -31,7 +29,6 @@ namespace Cafeteria.Controllers
             }
 
             ViewBag.Popular = popular;
-            ViewBag.Cheap = cheap;
             var purchases = db.Purchases.Include(p => p.Product);
             return View(purchases.ToList());
         }

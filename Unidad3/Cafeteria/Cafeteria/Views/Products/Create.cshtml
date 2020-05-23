@@ -1,5 +1,7 @@
 ﻿@model Cafeteria.Models.Product
 
+<link href="~/Content/layout/sb-admin-2.css" rel="stylesheet" />
+
 @{
     ViewBag.Title = "Nuevo";
 }
@@ -62,8 +64,7 @@
                         <div class="form-group">
                             <label class="font-weight-bold font-italic text-success">Foto:</label>
                             <div class="col-md-10">
-                                @*@Html.EditorFor(model => model.Image, new { htmlAttributes = new { @class = "form-control" } })*@
-                                <input type="file" name="ImageLoad" value="" />
+                                <input type="file" name="ImageLoad" value="" class="btn" />
                                 @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
                             </div>
                         </div>
